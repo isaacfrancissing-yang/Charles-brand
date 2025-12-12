@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAIL KING CHARLES | The Royal AI Expert</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display for British Elegance, Inter for Tech feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royal: {
+                            red: '#C8102E', // Union Jack Red
+                            dark: '#1A1A1A',
+                            gold: '#D4AF37', // Subtle accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for nuances */
+        body {
+            background-color: #ffffff;
+            color: #1A1A1A;
+            overflow-x: hidden;
+        }
+        
+        /* Interactive Hover Lines */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #C8102E;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Canvas Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans relative">
+
+    <!-- Background Effect -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-crown text-royal-red text-2xl"></i>
+                    <span class="font-serif font-bold text-xl tracking-wider text-royal-dark">ROYAL INTELLIGENCE</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-link font-serif text-gray-800 hover:text-royal-red transition-colors">首頁</a>
+                    <a href="#about-uk" class="nav-link font-serif text-gray-800 hover:text-royal-red transition-colors">關於大不列顛</a>
+                    <a href="#king" class="nav-link font-serif text-gray-800 hover:text-royal-red transition-colors">現任國王</a>
+                    <a href="#projects" class="nav-link font-serif text-gray-800 hover:text-royal-red transition-colors">開源貢獻</a> <!-- New Nav Link -->
+                    <a href="#contact" class="px-6 py-2 bg-royal-red text-white font-medium rounded-full hover:bg-red-700 transition-all shadow-lg hover:shadow-red-500/30">預約諮詢</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-800 hover:text-royal-red focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#home" class="block px-3 py-2 text-gray-800 hover:text-royal-red font-serif">首頁</a>
+                <a href="#about-uk" class="block px-3 py-2 text-gray-800 hover:text-royal-red font-serif">關於大不列顛</a>
+                <a href="#king" class="block px-3 py-2 text-gray-800 hover:text-royal-red font-serif">現任國王</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-800 hover:text-royal-red font-serif">開源貢獻</a> <!-- New Mobile Link -->
+                <a href="#contact" class="block px-3 py-2 text-royal-red font-bold font-serif">預約諮詢</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div class="text-center px-4 max-w-5xl mx-auto z-10">
+            <div class="reveal mb-4">
+                <span class="inline-block py-1 px-3 border border-royal-red text-royal-red rounded-full text-xs font-bold tracking-[0.2em] uppercase bg-white/50">The Original Monarch AI</span>
+            </div>
+            <h1 class="reveal delay-100 font-serif text-6xl md:text-8xl font-bold text-royal-dark leading-tight mb-6">
+                HAIL <span class="text-royal-red">KING</span><br>CHARLES
+            </h1>
+            <p class="reveal delay-200 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-light mb-10 leading-relaxed">
+                結合傳統王室智慧與現代數據驅動的治國理念。<br>
+                為大不列顛聯合王國提供最高端的「君主即服務」(Monarchy as a Service)。
+            </p>
+            <div class="reveal delay-300 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#about-uk" class="px-8 py-3 bg-royal-dark text-white rounded-none border border-royal-dark hover:bg-transparent hover:text-royal-dark transition-all duration-300 font-serif">
+                    探索王國
+                </a>
+                <a href="#king" class="px-8 py-3 border border-royal-red text-royal-red hover:bg-royal-red hover:text-white transition-all duration-300 font-serif">
+                    認識國王
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decorative Circle -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gray-200 rounded-full opacity-30 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gray-100 rounded-full opacity-30 pointer-events-none"></div>
+    </section>
+
+    <!-- About UK Section -->
+    <section id="about-uk" class="py-24 bg-gray-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="reveal relative h-[400px] w-full overflow-hidden shadow-2xl group">
+                     <!-- Placeholder for UK Image -->
+                     <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1470&auto=format&fit=crop" alt="London" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
+                     <div class="absolute inset-0 border-[12px] border-white/90"></div>
+                </div>
+                <div class="reveal delay-100">
+                    <h2 class="font-serif text-4xl font-bold text-royal-dark mb-6 relative inline-block">
+                        關於大不列顛聯合王國
+                        <span class="absolute -bottom-2 left-0 w-1/3 h-1 bg-royal-red"></span>
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        作為歷史最悠久的「品牌 IP」之一，大不列顛（Great Britain）不僅是一個國家，更是一個龐大的文化數據庫。我們擁有數百年的算法迭代，從工業革命的 Beta 版到現在的綠色能源版。
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-royal-red mt-1 mr-3"></i>
+                            <span class="text-gray-700">擁有全球頂尖的茶葉數據處理能力。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-royal-red mt-1 mr-3"></i>
+                            <span class="text-gray-700">深厚的陰雨天氣模型訓練集。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-royal-red mt-1 mr-3"></i>
+                            <span class="text-gray-700">最具影響力的文化輸出算法。</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current King Section (Stats & Services) -->
+    <section id="king" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-royal-dark mb-4">Current Monarch V3.0</h2>
+                <div class="w-24 h-1 bg-royal-red mx-auto"></div>
+                <p class="mt-4 text-gray-500 font-serif italic">"Waiting was just a long-term compilation process."</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                <div class="reveal bg-white border border-gray-100 p-10 shadow-lg text-center hover:shadow-xl transition-shadow border-t-4 border-t-royal-red">
+                    <div class="text-6xl font-bold text-gray-200 mb-2">30<span class="text-2xl">+</span></div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-dark mb-2">王儲經驗</h3>
+                    <p class="text-gray-500 text-sm uppercase tracking-widest">Years of Deep Learning</p>
+                    <p class="mt-4 text-gray-600">擁有史上最長的「待機與觀察」數據，對於全球局勢擁有超長期的訓練模型。</p>
+                </div>
+                <div class="reveal delay-100 bg-white border border-gray-100 p-10 shadow-lg text-center hover:shadow-xl transition-shadow border-t-4 border-t-royal-red">
+                    <div class="text-6xl font-bold text-royal-red mb-2">03<span class="text-2xl">+</span></div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-dark mb-2">國王經驗</h3>
+                    <p class="text-gray-500 text-sm uppercase tracking-widest">Years of Production Deployment</p>
+                    <p class="mt-4 text-gray-600">正式上線運行，系統穩定，致力於環境保護演算法與皇室現代化重構。</p>
+                </div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="text-center mb-10 reveal">
+                <h3 class="font-serif text-3xl font-bold text-royal-dark">核心服務 / Core Services</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="reveal delay-100 group p-8 bg-gray-50 hover:bg-royal-red transition-colors duration-500 text-center rounded-sm">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-royal-red group-hover:text-royal-red">
+                        <i class="fa-solid fa-sack-dollar text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">招募金源</h4>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
+                        利用皇家品牌效應，為慈善機構與國家項目進行高效的資本聚合運算。
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="reveal delay-200 group p-8 bg-gray-50 hover:bg-royal-red transition-colors duration-500 text-center rounded-sm">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-royal-red group-hover:text-royal-red">
+                        <i class="fa-solid fa-building-columns text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">吸引外商投資</h4>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
+                        透過國事訪問與皇家認證（Royal Warrant），提升英國市場的 SEO 排名與轉換率。
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="reveal delay-300 group p-8 bg-gray-50 hover:bg-royal-red transition-colors duration-500 text-center rounded-sm">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-royal-red group-hover:text-royal-red">
+                        <i class="fa-solid fa-camera-retro text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">觀光吉祥物</h4>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
+                        作為全英最大的流量入口，只需揮手即可為倫敦帶來數百萬的活躍訪客（DAU）。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section (New Content) -->
+    <section id="projects" class="py-24 bg-gray-100/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-royal-dark mb-4">開源貢獻 & 技術資源</h2>
+                <div class="w-24 h-1 bg-royal-red mx-auto"></div>
+                <p class="mt-4 text-gray-600">Charles AI 核心技術的展示與社群連結。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1: Meeting-Summarizer -->
+                <div class="reveal delay-100 p-8 bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <i class="fa-solid fa-robot text-4xl text-royal-red mb-4"></i>
+                    <h3 class="font-serif text-2xl font-bold text-royal-dark mb-3">自動化會議記錄摘要機器人</h3>
+                    <p class="text-gray-600 mb-6 text-sm">基於 Whisper 模型與 GPT-4，自動將錄音檔轉錄並生成條列式會議紀錄。</p>
+                    <!-- Link -->
+                    <a href="https://lin.ee/JxZy1M7" target="_blank" class="px-6 py-2 border border-royal-red text-royal-red font-medium hover:bg-royal-red hover:text-white transition-all duration-300 inline-flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        Demo 連結
+                    </a>
+                </div>
+
+                <!-- Project 2: 企業專屬知識庫 Demo -->
+                <div class="reveal delay-200 p-8 bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <i class="fa-solid fa-brain text-4xl text-royal-red mb-4"></i>
+                    <h3 class="font-serif text-2xl font-bold text-royal-dark mb-3">企業專屬知識庫 Demo</h3>
+                    <p class="text-gray-600 mb-6 text-sm">使用 LangChain 搭建的 RAG 系統，可上傳 PDF 並進行精準問答。</p>
+                    <!-- Embedded Link (LINE Button) -->
+                    <div class="pt-2">
+                        <!-- User provided link: <a href="https://lin.ee/JuZFjak"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0"></a>demo -->
+                        <a href="https://lin.ee/JuZFjak" target="_blank" rel="noopener noreferrer">
+                            <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0" class="inline-block hover:opacity-80 transition-opacity">
+                        </a>
+                        <span class="text-xs text-gray-500 ml-2 block mt-2">（點擊上方圖片查看 Demo）</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: 國王的聯繫方式 -->
+                <div class="reveal delay-300 p-8 bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <i class="fa-solid fa-comment-dots text-4xl text-royal-red mb-4"></i>
+                    <h3 class="font-serif text-2xl font-bold text-royal-dark mb-3">國王的聯繫方式</h3>
+                    <p class="text-gray-600 mb-6 text-sm">專為國王粉絲而設，快速與查爾斯國王成為好友的 Prompt。</p>
+                    <!-- Embedded Link (QR Code Image) -->
+                    <div class="mt-4 flex justify-center">
+                        <!-- User provided link: <img src="https://qr-official.line.me/gs/M_616htbrf_GW.png?oat_content=qr"> -->
+                        <img src="https://qr-official.line.me/gs/M_616htbrf_GW.png?oat_content=qr" alt="King Charles QR Code" class="w-36 h-36 object-contain border border-gray-300 p-2 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section id="contact" class="py-24 bg-royal-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pattern-dots"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <div class="reveal">
+                <i class="fa-solid fa-envelope-open-text text-5xl text-royal-red mb-6"></i>
+                <h2 class="font-serif text-4xl font-bold mb-4">預約皇家諮詢</h2>
+                <p class="text-gray-400 mb-10">無論是環保議題或是下午茶禮儀，King Charles AI 隨時準備回應（如果秘書安排得進去的話）。</p>
+            </div>
+
+            <form class="reveal delay-100 max-w-lg mx-auto space-y-4 text-left" onsubmit="event.preventDefault(); alert('您的請求已發送至白金漢宮伺服器 (Buckingham Palace Server)... \n請等待大約 3-5 個工作世紀。');">
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">您的爵位 / Name</label>
+                    <input type="text" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all" placeholder="Sir / Madam...">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">諮詢議題 / Topic</label>
+                    <select class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all">
+                        <option class="text-black">外商投資 (Investment)</option>
+                        <option class="text-black">環境保護 (Environment)</option>
+                        <option class="text-black">如何正確泡茶 (Tea Etiquette)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">訊息內容 / Message</label>
+                    <textarea rows="4" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all" placeholder="God Save The King..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 bg-royal-red text-white font-bold tracking-widest hover:bg-white hover:text-royal-red transition-all duration-300 uppercase">
+                    發送請求
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 font-serif text-sm">
+                &copy; 2024 The Royal Intelligence. Designed by Web Design Master. <br>
+                <span class="text-xs text-gray-600">Not officially affiliated with the House of Windsor. Just a tribute to the AI Monarch.</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // --- 1. Reveal Animation on Scroll ---
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- 2. Mobile Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // --- 3. Floating Particles Background (Canvas) ---
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let particlesArray;
+
+        // Resize Canvas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        // Particle Class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1; // Size of particle
+                this.speedX = (Math.random() * 1.5 - 0.75); // Drift left/right
+                this.speedY = (Math.random() * 1.5 - 0.75); // Drift up/down
+                
+                // Colors: mostly light gray, some royal red
+                const random = Math.random();
+                if (random > 0.9) {
+                    this.color = 'rgba(200, 16, 46, 0.4)'; // Royal Red
+                } else {
+                    this.color = 'rgba(200, 200, 200, 0.2)'; // Faint Gray
+                }
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Wrap around screen
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+    </script>
+</body>
+</html>
