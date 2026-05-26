@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAIL KING CHARLES | 皇家 AI 專家與開源顧問</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
-    
     <meta name="description" content="結合傳統王室智慧與現代數據驅動的治國理念。為大不列顛聯合王國提供最高端的「君主即服務」(Monarchy as a Service)，同時提供現代 AI 開源解決方案。">
     <meta name="keywords" content="查爾斯三世, 英國王室, AI, 人工智慧, 開源貢獻, Monarchy as a Service, 英國, Royal Intelligence">
     <meta name="author" content="Royal Intelligence">
@@ -16,10 +15,11 @@
     <meta property="og:image" content="https://github.com/isaacfrancissing-yang/Charles-brand/blob/main/king-charles.jpg?raw=true">
     <meta property="og:locale" content="zh_TW">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -45,6 +45,7 @@
             color: #1A1A1A;
             overflow-x: hidden;
         }
+
         .nav-link {
             position: relative;
         }
@@ -61,6 +62,7 @@
         .nav-link:hover::after {
             width: 100%;
         }
+
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -70,6 +72,7 @@
             z-index: -1;
             pointer-events: none;
         }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -79,13 +82,68 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* 提交按鈕加載狀態 */
+        .btn-submitting {
+            pointer-events: none;
+            opacity: 0.7;
+            position: relative;
+        }
+        .btn-submitting::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            top: 50%;
+            right: 1.5rem;
+            transform: translateY(-50%);
+            border: 2px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: translateY(-50%) rotate(360deg);
+            }
+        }
+
+        /* 成功/失敗提示訊息 */
+        .form-feedback {
+            display: none;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .form-feedback.show {
+            display: block;
+        }
+        .form-feedback.success {
+            background-color: rgba(212, 175, 55, 0.2);
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+        }
+        .form-feedback.error {
+            background-color: rgba(200, 16, 46, 0.15);
+            border: 1px solid #C8102E;
+            color: #ff6b6b;
+        }
+
+        /* pattern-dots 備用樣式 */
+        .pattern-dots {
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
     </style>
 </head>
 <body class="antialiased font-sans relative">
 
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Navigation (內容不變) -->
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -118,7 +176,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (內容不變) -->
+    <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
         <div class="text-center px-4 max-w-5xl mx-auto z-10">
             <div class="reveal mb-4">
@@ -144,13 +202,13 @@
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gray-100 rounded-full opacity-30 pointer-events-none"></div>
     </section>
 
-    <!-- About UK Section (內容不變) -->
+    <!-- About UK Section -->
     <section id="about-uk" class="py-24 bg-gray-50/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div class="reveal relative h-[400px] w-full overflow-hidden shadow-2xl group">
-                     <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1470&auto=format&fit=crop" alt="London" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
-                     <div class="absolute inset-0 border-[12px] border-white/90"></div>
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1470&auto=format&fit=crop" alt="London" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0">
+                    <div class="absolute inset-0 border-[12px] border-white/90"></div>
                 </div>
                 <div class="reveal delay-100">
                     <h2 class="font-serif text-4xl font-bold text-royal-dark mb-6 relative inline-block">
@@ -161,51 +219,49 @@
                         作為歷史最悠久的「品牌 IP」之一，大不列顛（Great Britain）不僅是一個國家，更是一個龐大的文化數據庫。我們擁有數百年的算法迭代，從工業革命的 Beta 版到現在的綠色能源版。
                     </p>
                     <div class="mt-8 space-y-6">
-    <div class="reveal delay-200">
-        <div class="flex justify-between items-baseline mb-1">
-            <span class="text-sm font-bold text-royal-dark uppercase tracking-wide">茶葉數據處理能力</span>
-            <span class="text-lg font-bold text-royal-red">99<small class="text-xs">%</small></span>
-        </div>
-        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-            <div class="bg-royal-red h-2 rounded-full" style="width: 99%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mt-1">全球頂尖的紅茶/綠茶/下午茶時段預測演算法，準確率近乎完美。</p>
-    </div>
-    <div class="reveal delay-300">
-        <div class="flex justify-between items-baseline mb-1">
-            <span class="text-sm font-bold text-royal-dark uppercase tracking-wide">陰雨天氣模型訓練集</span>
-            <span class="text-lg font-bold text-royal-red">87<small class="text-xs">%</small></span>
-        </div>
-        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-            <div class="bg-royal-red h-2 rounded-full" style="width: 87%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mt-1">數百年累積的連續降雨數據，為氣象 AI 提供深厚的歷史脈絡。</p>
-    </div>
-    <div class="reveal delay-400">
-        <div class="flex justify-between items-baseline mb-1">
-            <span class="text-sm font-bold text-royal-dark uppercase tracking-wide">文化輸出算法</span>
-            <span class="text-lg font-bold text-royal-red">94<small class="text-xs">%</small></span>
-        </div>
-        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-            <div class="bg-royal-red h-2 rounded-full" style="width: 94%;"></div>
-        </div>
-        <p class="text-xs text-gray-500 mt-1">從莎士比亞到披頭四，全球最具影響力的文化 IP 矩陣。</p>
-    </div>
-</div>
+                        <div class="reveal delay-200">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <span class="text-sm font-bold text-royal-dark uppercase tracking-wide">茶葉數據處理能力</span>
+                                <span class="text-lg font-bold text-royal-red">99<small class="text-xs">%</small></span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-royal-red h-2 rounded-full" style="width: 99%;"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">全球頂尖的紅茶/綠茶/下午茶時段預測演算法，準確率近乎完美。</p>
+                        </div>
+                        <div class="reveal delay-300">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <span class="text-sm font-bold text-royal-dark uppercase tracking-wide">陰雨天氣模型訓練集</span>
+                                <span class="text-lg font-bold text-royal-red">87<small class="text-xs">%</small></span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-royal-red h-2 rounded-full" style="width: 87%;"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">數百年累積的連續降雨數據，為氣象 AI 提供深厚的歷史脈絡。</p>
+                        </div>
+                        <div class="reveal delay-400">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <span class="text-sm font-bold text-royal-dark uppercase tracking-wide">文化輸出算法</span>
+                                <span class="text-lg font-bold text-royal-red">94<small class="text-xs">%</small></span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-royal-red h-2 rounded-full" style="width: 94%;"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">從莎士比亞到披頭四，全球最具影響力的文化 IP 矩陣。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Current King Section (內容不變) -->
+    <!-- Current King Section -->
     <section id="king" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
                 <div class="reveal order-1 md:order-1 flex justify-center">
                     <div class="w-full max-w-sm md:max-w-md h-auto overflow-hidden rounded-lg shadow-2xl transform hover:scale-[1.02] transition-transform duration-500 relative">
-                        <img src="https://github.com/isaacfrancissing-yang/Charles-brand/blob/main/king-charles.jpg?raw=true" 
-                             alt="查爾斯三世國王肖像" 
-                             class="w-full h-full object-cover border-4 border-royal-red/30">
+                        <img src="https://github.com/isaacfrancissing-yang/Charles-brand/blob/main/king-charles.jpg?raw=true" alt="查爾斯三世國王肖像" class="w-full h-full object-cover border-4 border-royal-red/30">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/20 to-transparent"></div>
                     </div>
                 </div>
@@ -245,7 +301,7 @@
                 </div>
             </div>
 
-            <!-- Royal News Section (內容不變) -->
+            <!-- Royal News Section -->
             <section id="news" class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16 reveal">
@@ -253,23 +309,105 @@
                         <div class="w-24 h-1 bg-royal-red mx-auto"></div>
                         <p class="mt-4 text-gray-600">英國首相最新國際動態 — 點擊標題查看來自全球主要媒體的即時報導。</p>
                     </div>
-
                     <div class="mb-20">
                         <div class="flex items-center gap-3 mb-8 reveal">
                             <div class="h-px flex-grow bg-gray-200"></div>
                             <span class="text-lg font-bold text-royal-dark uppercase tracking-widest bg-white px-4">🇬🇧 English-Language Media</span>
                             <div class="h-px flex-grow bg-gray-200"></div>
                         </div>
-                        <!-- 英文頭條（略） -->
+                        <div class="reveal mb-10">
+                            <div class="bg-red-50 border-l-4 border-royal-red p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
+                                <div class="flex flex-wrap items-center gap-2 mb-2">
+                                    <span class="bg-royal-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Top Story</span>
+                                    <span class="text-gray-500 text-sm">English · Google News</span>
+                                </div>
+                                <h3 class="font-serif text-2xl md:text-3xl font-bold text-royal-dark mb-3">
+                                    UK Prime Minister Visits China to Boost AI and Green Energy Cooperation
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    The Prime Minister is in Beijing for high-level talks, with multiple technology agreements expected on AI governance, offshore wind, and low-carbon innovation.
+                                </p>
+                                <a href="https://news.google.com/search?q=UK+Prime+Minister+China+visit+2025+2026&hl=en&gl=GB&ceid=GB%3Aen" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-royal-red font-semibold hover:underline">
+                                    Read on Google News <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="reveal delay-100 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                                <span class="text-xs text-royal-red font-bold uppercase tracking-wider">Diplomacy</span>
+                                <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">PM Meets Business Leaders in China, Promoting UK Fintech in Asia</h4>
+                                <p class="text-gray-600 text-sm mb-4">Trade delegation includes fintech unicorns seeking wider cross-border settlement cooperation.</p>
+                                <a href="https://news.google.com/search?q=UK+Prime+Minister+fintech+Asia+China+visit&hl=en&gl=GB&ceid=GB%3Aen" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                    Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                            <div class="reveal delay-200 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                                <span class="text-xs text-royal-red font-bold uppercase tracking-wider">Parliament</span>
+                                <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">PM to Report China Visit to Parliament, Opposition Demands Transparency</h4>
+                                <p class="text-gray-600 text-sm mb-4">Shadow foreign secretary calls for full disclosure of all agreements to safeguard security.</p>
+                                <a href="https://news.google.com/search?q=UK+Prime+Minister+Parliament+China+visit+report&hl=en&gl=GB&ceid=GB%3Aen" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                    Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                            <div class="reveal delay-300 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                                <span class="text-xs text-royal-red font-bold uppercase tracking-wider">International Relations</span>
+                                <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">PM and EU Leaders Vow Coordinated Approach to China Policy</h4>
+                                <p class="text-gray-600 text-sm mb-4">Downing Street insists the China visit will not weaken the UK's ties with European allies.</p>
+                                <a href="https://news.google.com/search?q=UK+Prime+Minister+EU+China+policy+coordination&hl=en&gl=GB&ceid=GB%3Aen" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                    Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-
                     <div>
                         <div class="flex items-center gap-3 mb-8 reveal">
                             <div class="h-px flex-grow bg-gray-200"></div>
                             <span class="text-lg font-bold text-royal-dark uppercase tracking-widest bg-white px-4">🇹🇼 中文媒體</span>
                             <div class="h-px flex-grow bg-gray-200"></div>
                         </div>
-                        <!-- 中文頭條（略） -->
+                        <div class="reveal mb-10">
+                            <div class="bg-red-50 border-l-4 border-royal-red p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
+                                <div class="flex flex-wrap items-center gap-2 mb-2">
+                                    <span class="bg-royal-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">頭條焦點</span>
+                                    <span class="text-gray-500 text-sm">中文 · Google 新聞</span>
+                                </div>
+                                <h3 class="font-serif text-2xl md:text-3xl font-bold text-royal-dark mb-3">
+                                    英國首相正式出訪中國，推動雙邊 AI 與綠色能源合作
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    首相抵達北京展開國事訪問，預計簽署多項科技合作備忘錄，聚焦人工智慧治理、離岸風電與低碳技術。
+                                </p>
+                                <a href="https://news.google.com/search?q=%E8%8B%B1%E5%9C%8B%E9%A6%96%E7%9B%B8%20%E8%A8%AA%E5%95%8F%E4%B8%AD%E5%9C%8B%202025%202026&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-royal-red font-semibold hover:underline">
+                                    查看 Google 新聞 <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="reveal delay-100 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                                <span class="text-xs text-royal-red font-bold uppercase tracking-wider">外交</span>
+                                <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">首相訪中期間會晤企業領袖，推動英國金融科技進入亞洲</h4>
+                                <p class="text-gray-600 text-sm mb-4">隨行商務代表團包含多家金融科技獨角獸，期望擴大人民幣跨境結算合作。</p>
+                                <a href="https://news.google.com/search?q=%E8%8B%B1%E5%9C%8B%E9%A6%96%E7%9B%B8%20%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80%20%E4%BA%9E%E6%B4%B2&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                    查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                            <div class="reveal delay-200 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                                <span class="text-xs text-royal-red font-bold uppercase tracking-wider">國會</span>
+                                <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">首相回國後將向國會報告訪華成果，反對黨要求透明審查</h4>
+                                <p class="text-gray-600 text-sm mb-4">在野黨呼籲公布所有協議細節，確保不損害英國國家安全。</p>
+                                <a href="https://news.google.com/search?q=%E8%8B%B1%E5%9C%8B%E9%A6%96%E7%9B%B8%20%E5%9C%8B%E6%9C%83%20%E5%A0%B1%E5%91%8A%20%E8%A8%AA%E8%8F%AF&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                    查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                            <div class="reveal delay-300 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                                <span class="text-xs text-royal-red font-bold uppercase tracking-wider">國際關係</span>
+                                <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">英國首相與歐盟領袖通話，強調對中政策將協調一致</h4>
+                                <p class="text-gray-600 text-sm mb-4">首相辦公室表示，訪中成果不會影響與歐洲盟友的緊密夥伴關係。</p>
+                                <a href="https://news.google.com/search?q=%E8%8B%B1%E5%9C%8B%E9%A6%96%E7%9B%B8%20%E6%AD%90%E7%9B%9F%20%E5%B0%8D%E4%B8%AD%E6%94%BF%E7%AD%96&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                    查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -277,19 +415,80 @@
             <div class="text-center mb-10 reveal">
                 <h3 class="font-serif text-3xl font-bold text-royal-dark">核心服務 / Core Services</h3>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service cards (內容不變) -->
+                <div class="reveal delay-100 group p-8 bg-gray-50 hover:bg-royal-red transition-colors duration-500 text-center rounded-sm">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-royal-red group-hover:text-royal-red">
+                        <i class="fa-solid fa-sack-dollar text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">招募金源</h4>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
+                        利用皇家品牌效應，為慈善機構與國家項目進行高效的資本聚合運算。
+                    </p>
+                </div>
+                <div class="reveal delay-200 group p-8 bg-gray-50 hover:bg-royal-red transition-colors duration-500 text-center rounded-sm">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-royal-red group-hover:text-royal-red">
+                        <i class="fa-solid fa-building-columns text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">吸引外商投資</h4>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
+                        透過國事訪問與皇家認證（Royal Warrant），提升英國市場的 SEO 排名與轉換率。
+                    </p>
+                </div>
+                <div class="reveal delay-300 group p-8 bg-gray-50 hover:bg-royal-red transition-colors duration-500 text-center rounded-sm">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-royal-red group-hover:text-royal-red">
+                        <i class="fa-solid fa-camera-retro text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">觀光吉祥物</h4>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
+                        作為全英最大的流量入口，只需揮手即可為倫敦帶來數百萬的活躍訪客（DAU）。
+                    </p>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- Projects Section (內容不變) -->
+
+    <!-- Projects Section -->
     <section id="projects" class="py-24 bg-gray-100/50">
-        <!-- 保持原樣 -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-royal-dark mb-4">開源貢獻 & 技術資源</h2>
+                <div class="w-24 h-1 bg-royal-red mx-auto"></div>
+                <p class="mt-4 text-gray-600">Charles AI 核心技術的展示與社群連結。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="reveal delay-100 p-8 bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <i class="fa-solid fa-robot text-4xl text-royal-red mb-4"></i>
+                    <h3 class="font-serif text-2xl font-bold text-royal-dark mb-3">自動化會議記錄摘要機器人</h3>
+                    <p class="text-gray-600 mb-6 text-sm">基於 Whisper 模型與 GPT-4，自動將錄音檔轉錄並生成條列式會議紀錄。</p>
+                    <a href="https://lin.ee/JxZy1M7" target="_blank" class="px-6 py-2 border border-royal-red text-royal-red font-medium hover:bg-royal-red hover:text-white transition-all duration-300 inline-flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        Demo 連結
+                    </a>
+                </div>
+                <div class="reveal delay-200 p-8 bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <i class="fa-solid fa-brain text-4xl text-royal-red mb-4"></i>
+                    <h3 class="font-serif text-2xl font-bold text-royal-dark mb-3">企業專屬知識庫 Demo</h3>
+                    <p class="text-gray-600 mb-6 text-sm">使用 LangChain 搭建的 RAG 系統，可上傳 PDF 並進行精準問答。</p>
+                    <div class="pt-2">
+                        <a href="https://lin.ee/JuZFjak" target="_blank" rel="noopener noreferrer">
+                            <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0" class="inline-block hover:opacity-80 transition-opacity">
+                        </a>
+                        <span class="text-xs text-gray-500 ml-2 block mt-2">（點擊上方圖片查看 Demo）</span>
+                    </div>
+                </div>
+                <div class="reveal delay-300 p-8 bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <i class="fa-solid fa-comment-dots text-4xl text-royal-red mb-4"></i>
+                    <h3 class="font-serif text-2xl font-bold text-royal-dark mb-3">國王的聯繫方式</h3>
+                    <p class="text-gray-600 mb-6 text-sm">專為國王粉絲而設，快速與查爾斯國王成為好友的 Prompt。</p>
+                    <div class="mt-4 flex justify-center">
+                        <img src="https://qr-official.line.me/gs/M_616htbrf_GW.png?oat_content=qr" alt="King Charles QR Code" class="w-36 h-36 object-contain border border-gray-300 p-2 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- ========== 修改重點：預約皇家諮詢表單 ========== -->
+    <!-- Consultation Section (修改重點：表單提交至 Email) -->
     <section id="contact" class="py-24 bg-royal-dark text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 pattern-dots"></div>
         <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
@@ -299,135 +498,267 @@
                 <p class="text-gray-400 mb-10">無論是環保議題或是下午茶禮儀，King Charles AI 隨時準備回應（如果秘書安排得進去的話）。</p>
             </div>
 
-            <!-- 表單：改用自訂的 onsubmit 函數 -->
-            <form id="royal-form" class="reveal delay-100 max-w-lg mx-auto space-y-4 text-left" onsubmit="handleRoyalSubmit(event)">
+            <!--
+            ============================================================
+            表單提交設定說明 (Formspree)
+            ============================================================
+            本表單使用 Formspree (https://formspree.io) 將訊息發送至
+            yyyyyungeric@yahoo.com.tw。
+
+            請依照以下步驟完成設定：
+            1. 前往 https://formspree.io 註冊免費帳號
+            2. 點擊 "New Form" 創建新表單
+            3. 在 "Destination Email" 欄位輸入：yyyyyungeric@yahoo.com.tw
+            4. 創建完成後，複製您的 Form ID（例如：xjvqyzyz）
+            5. 將下方 JavaScript 中的 FORMSPREE_FORM_ID 替換為您的 Form ID
+
+            備用方案（無需註冊）：
+            您也可以使用 Formsubmit.co，只需將 action 改為：
+            https://formsubmit.co/yyyyyungeric@yahoo.com.tw
+            首次使用需至信箱點擊確認連結。
+            ============================================================
+            -->
+            <form id="royal-consultation-form" class="reveal delay-100 max-w-lg mx-auto space-y-4 text-left" novalidate>
+                <!-- 隱藏欄位：郵件主旨與反垃圾防護 -->
+                <input type="hidden" name="_subject" value="【皇家諮詢】新訊息來自 HAIL KING CHARLES 網站">
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
                 <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-1" for="senderName">您的爵位 / Name</label>
-                    <input type="text" id="senderName" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all" placeholder="Sir / Madam..." required>
+                    <label for="sender-name" class="block text-sm font-medium text-gray-400 mb-1">您的爵位 / Name</label>
+                    <input type="text" id="sender-name" name="爵位／姓名" required
+                    class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all"
+                    placeholder="Sir / Madam...">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-1" for="topic">諮詢議題 / Topic</label>
-                    <select id="topic" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all">
-                        <option value="外商投資" class="text-black">外商投資 (Investment)</option>
-                        <option value="環境保護" class="text-black">環境保護 (Environment)</option>
-                        <option value="泡茶禮儀" class="text-black">如何正確泡茶 (Tea Etiquette)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-1" for="message">訊息內容 / Message</label>
-                    <textarea id="message" rows="4" class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all" placeholder="God Save The King..." required></textarea>
-                </div>
-                <button type="submit" class="w-full py-4 bg-royal-red text-white font-bold tracking-widest hover:bg-white hover:text-royal-red transition-all duration-300 uppercase">
-                    發送請求
-                </button>
-            </form>
+                    <label for="sender-topic" class="block text-sm font-medium text-gray-400 mb-1">諮詢議題 / Topic</label>
+                    <select id="sender-topic" name="諮詢議題"
+                    class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all">
+                    <option class="text-black" value="外商投資">外商投資 (Investment)</option>
+                    <option class="text-black" value="環境保護">環境保護 (Environment)</option>
+                    <option class="text-black" value="如何正確泡茶">如何正確泡茶 (Tea Etiquette)</option>
+                </select>
+            </div>
+            <div>
+                <label for="sender-message" class="block text-sm font-medium text-gray-400 mb-1">訊息內容 / Message</label>
+                <textarea id="sender-message" name="訊息內容" rows="4" required
+                class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all"
+            placeholder="God Save The King..."></textarea>
         </div>
-    </section>
+        <!-- 提交按鈕 -->
+        <button type="submit" id="submit-btn"
+        class="w-full py-4 bg-royal-red text-white font-bold tracking-widest hover:bg-white hover:text-royal-red transition-all duration-300 uppercase">
+        發送請求
+    </button>
+    <!-- 提交後的回饋訊息區 -->
+    <div id="form-feedback" class="form-feedback"></div>
+</form>
+</div>
+</section>
 
-    <!-- Footer (內容不變) -->
-    <footer class="bg-black py-8 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-500 font-serif text-sm">
-                &copy; 2024 The Royal Intelligence. Designed by Web Design Master. <br>
-                <span class="text-xs text-gray-600">Not officially affiliated with the House of Windsor. Just a tribute to the AI Monarch.</span>
-            </p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer class="bg-black py-8 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-gray-500 font-serif text-sm">
+            &copy; 2024 The Royal Intelligence. Designed by Web Design Master. <br>
+            <span class="text-xs text-gray-600">Not officially affiliated with the House of Windsor. Just a tribute to the AI Monarch.</span>
+        </p>
+    </div>
+</footer>
 
-    <!-- ========== Scripts ========== -->
-    <script>
-        // --- 1. 捲動顯示動畫 (不變) ---
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+<!-- Scripts -->
+<script>
+    // --- 1. Reveal Animation on Scroll ---
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
 
-        // --- 2. 手機選單切換 (不變) ---
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    // --- 2. Mobile Menu Toggle ---
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
 
-        // --- 3. Canvas 粒子背景 (不變) ---
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray;
+    // --- 3. Floating Particles Background (Canvas) ---
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init();
-        });
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = (Math.random() * 1.5 - 0.75);
-                this.speedY = (Math.random() * 1.5 - 0.75);
-                const random = Math.random();
-                this.color = random > 0.9 ? 'rgba(200, 16, 46, 0.4)' : 'rgba(200, 200, 200, 0.2)';
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        function init() {
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) particlesArray.push(new Particle());
-        }
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
-            requestAnimationFrame(animate);
-        }
         init();
-        animate();
-
-        // --- 4. 新增：處理皇家諮詢表單，透過 mailto 發送到 yyyyyungeric@yahoo.com.tw ---
-        function handleRoyalSubmit(event) {
-            event.preventDefault();  // 阻止預設提交
-
-            // 取得表單欄位值
-            const name = document.getElementById('senderName').value.trim();
-            const topic = document.getElementById('topic').value;
-            const message = document.getElementById('message').value.trim();
-
-            // 組合信件主旨與內文 (使用 encodeURIComponent 處理中文)
-            const subject = `皇家諮詢：${topic}`;
-            const body = `爵位/名字：${name}%0D%0A議題：${topic}%0D%0A訊息：%0D%0A${message}`;
-            
-            // 建立 mailto 鏈接，收件人為指定信箱
-            const mailtoLink = `mailto:yyyyyungeric@yahoo.com.tw?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            // 提示使用者，隨後打開郵件軟體
-            alert('您的請求已發送至白金漢宮伺服器 (Buckingham Palace Server)...\n即將為您打開郵件客戶端，請確認後發送。');
-            window.location.href = mailtoLink;
+    });
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = (Math.random() * 1.5 - 0.75);
+            this.speedY = (Math.random() * 1.5 - 0.75);
+            const random = Math.random();
+            if (random > 0.9) {
+                this.color = 'rgba(200, 16, 46, 0.4)';
+            } else {
+                this.color = 'rgba(200, 200, 200, 0.2)';
+            }
         }
-    </script>
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+        }
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+    function init() {
+        particlesArray = [];
+        let numberOfParticles = (canvas.height * canvas.width) / 9000;
+        for (let i = 0; i < numberOfParticles; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+        }
+        requestAnimationFrame(animate);
+    }
+    init();
+    animate();
+
+    // --- 4. 表單提交邏輯 (Formspree / 可改用 Formsubmit.co) ---
+    /*
+     * ============================================================
+     * 請在此處填入您的 Formspree Form ID
+     * 例如：const FORMSPREE_FORM_ID = 'xjvqyzyz';
+     *
+     * 若尚未註冊 Formspree，請參閱上方 HTML 註解中的設定說明。
+     * 您也可以改用 Formsubmit.co（無需註冊），只需將下方
+     * FORMSPREE_FORM_ID 換成郵箱即可，但需注意免費方案限制。
+     * ============================================================
+     */
+    const FORMSPREE_FORM_ID = 'YOUR_FORMSPREE_FORM_ID'; // ← 請替換為您的 Form ID
+    const FORM_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
+
+    const consultationForm = document.getElementById('royal-consultation-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const feedbackEl = document.getElementById('form-feedback');
+
+    /**
+     * 顯示回饋訊息
+     * @param {string} message - 要顯示的文字
+     * @param {'success'|'error'} type - 訊息類型
+     */
+    function showFeedback(message, type) {
+        feedbackEl.textContent = message;
+        feedbackEl.className = 'form-feedback show ' + type;
+        // 5 秒後自動隱藏
+        setTimeout(() => {
+            feedbackEl.className = 'form-feedback';
+        }, 5000);
+    }
+
+    /**
+     * 設定按鈕為加載中狀態
+     * @param {boolean} isLoading - 是否為加載中
+     */
+    function setButtonLoading(isLoading) {
+        if (isLoading) {
+            submitBtn.classList.add('btn-submitting');
+            submitBtn.textContent = '傳送中...';
+            submitBtn.disabled = true;
+        } else {
+            submitBtn.classList.remove('btn-submitting');
+            submitBtn.textContent = '發送請求';
+            submitBtn.disabled = false;
+        }
+    }
+
+    consultationForm.addEventListener('submit', async function(event) {
+        event.preventDefault(); // 阻止預設提交
+
+        // 檢查是否已設定 Formspree ID
+        if (FORMSPREE_FORM_ID === 'YOUR_FORMSPREE_FORM_ID') {
+            showFeedback('⚠️ 尚未設定 Formspree Form ID。請參閱代碼中的設定說明，將 FORMSPREE_FORM_ID 替換為您的實際 ID。',
+                'error');
+            return;
+        }
+
+        // 基本客戶端驗證
+        const nameInput = document.getElementById('sender-name');
+        const messageInput = document.getElementById('sender-message');
+        if (!nameInput.value.trim()) {
+            showFeedback('請填寫您的爵位或姓名。', 'error');
+            nameInput.focus();
+            return;
+        }
+        if (!messageInput.value.trim()) {
+            showFeedback('請填寫訊息內容。', 'error');
+            messageInput.focus();
+            return;
+        }
+
+        // 收集表單資料
+        const formData = {
+            '爵位／姓名': nameInput.value.trim(),
+            '諮詢議題': document.getElementById('sender-topic').value,
+            '訊息內容': messageInput.value.trim(),
+            '_subject': '【皇家諮詢】新訊息來自 HAIL KING CHARLES 網站',
+        };
+
+        setButtonLoading(true);
+        feedbackEl.className = 'form-feedback'; // 隱藏舊訊息
+
+        try {
+            const response = await fetch(FORM_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                showFeedback('✅ 您的請求已成功發送至白金漢宮伺服器！\n我們將盡快回覆（約 2-5 個工作世紀）。',
+                    'success');
+                consultationForm.reset(); // 清空表單
+            } else {
+                const errorData = await response.json().catch(() => ({}));
+                console.error('Formspree 錯誤：', errorData);
+                showFeedback('❌ 傳送失敗，請稍後再試。若持續發生，請直接寄信至 yyyyyungeric@yahoo.com.tw。',
+                    'error');
+            }
+        } catch (networkError) {
+            console.error('網路錯誤：', networkError);
+            showFeedback('❌ 網路連線異常，請檢查您的網路後再試。', 'error');
+        } finally {
+            setButtonLoading(false);
+        }
+    });
+</script>
 </body>
 </html>
