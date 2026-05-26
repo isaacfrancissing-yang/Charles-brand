@@ -44,28 +44,20 @@
             color: #1A1A1A;
             overflow-x: hidden;
         }
-        .nav-link {
-            position: relative;
-        }
+        .nav-link { position: relative; }
         .nav-link::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
+            width: 0; height: 2px;
+            bottom: -4px; left: 0;
             background-color: #C8102E;
             transition: width 0.3s ease;
         }
-        .nav-link:hover::after {
-            width: 100%;
-        }
+        .nav-link:hover::after { width: 100%; }
         #bg-canvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: -1;
             pointer-events: none;
         }
@@ -86,19 +78,15 @@
         .btn-submitting::after {
             content: '';
             position: absolute;
-            width: 18px;
-            height: 18px;
-            top: 50%;
-            right: 1.5rem;
+            width: 18px; height: 18px;
+            top: 50%; right: 1.5rem;
             transform: translateY(-50%);
             border: 2px solid transparent;
             border-top-color: white;
             border-radius: 50%;
             animation: spin 0.7s linear infinite;
         }
-        @keyframes spin {
-            to { transform: translateY(-50%) rotate(360deg); }
-        }
+        @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
         .form-feedback {
             display: none;
             padding: 1rem;
@@ -108,9 +96,7 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        .form-feedback.show {
-            display: block;
-        }
+        .form-feedback.show { display: block; }
         .form-feedback.success {
             background-color: rgba(212, 175, 55, 0.2);
             border: 1px solid #D4AF37;
@@ -242,7 +228,7 @@
         </div>
     </section>
 
-    <!-- Current King Section -->
+    <!-- Current King Section (含更新後的新聞區塊) -->
     <section id="king" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
@@ -288,7 +274,7 @@
                 </div>
             </div>
 
-            <!-- ★★★ 更新後的 Royal News Bulletin 區塊 ★★★ -->
+            <!-- Royal News Bulletin -->
             <section id="news" class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16 reveal">
@@ -296,16 +282,12 @@
                         <div class="w-24 h-1 bg-royal-red mx-auto"></div>
                         <p class="mt-4 text-gray-600">國際重大地緣政治事件即時追蹤 — 點擊標題查看來自全球主要媒體的雙語報導。</p>
                     </div>
-
-                    <!-- ========== 英文主流媒體區 ========== -->
                     <div class="mb-20">
                         <div class="flex items-center gap-3 mb-8 reveal">
                             <div class="h-px flex-grow bg-gray-200"></div>
                             <span class="text-lg font-bold text-royal-dark uppercase tracking-widest bg-white px-4">🇬🇧 English-Language Media</span>
                             <div class="h-px flex-grow bg-gray-200"></div>
                         </div>
-
-                        <!-- 英文頭條：俄烏戰爭最新動態 -->
                         <div class="reveal mb-10">
                             <div class="bg-red-50 border-l-4 border-royal-red p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
                                 <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -318,23 +300,17 @@
                                 <p class="text-gray-700 leading-relaxed mb-4">
                                     Heavy fighting continues in the Donbas region. NATO ministers meet to discuss further military aid, while the UN warns of a deepening humanitarian crisis.
                                 </p>
-                                <a href="https://news.google.com/search?q=Russia+Ukraine+war+2025+2026+escalation&hl=en&gl=US&ceid=US%3Aen" 
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="inline-flex items-center gap-2 text-royal-red font-semibold hover:underline">
+                                <a href="https://news.google.com/search?q=Russia+Ukraine+war+2025+2026+escalation&hl=en&gl=US&ceid=US%3Aen" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-royal-red font-semibold hover:underline">
                                     Read on Google News <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
                         </div>
-
-                        <!-- 英文三小格 -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div class="reveal delay-100 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
                                 <span class="text-xs text-royal-red font-bold uppercase tracking-wider">Military Aid</span>
                                 <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">Western Allies Pledge Additional Advanced Weaponry to Ukraine</h4>
                                 <p class="text-gray-600 text-sm mb-4">New package includes long-range missiles and air defense systems, raising concerns over further escalation.</p>
-                                <a href="https://news.google.com/search?q=Western+military+aid+to+Ukraine+2025&hl=en&gl=US&ceid=US%3Aen" 
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                <a href="https://news.google.com/search?q=Western+military+aid+to+Ukraine+2025&hl=en&gl=US&ceid=US%3Aen" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
                                     Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                                 </a>
                             </div>
@@ -342,9 +318,7 @@
                                 <span class="text-xs text-royal-red font-bold uppercase tracking-wider">Sanctions</span>
                                 <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">EU Rolls Out Fresh Sanctions on Russian Energy and Technology Sectors</h4>
                                 <p class="text-gray-600 text-sm mb-4">The latest sanctions target oil exports and semiconductor imports, aiming to weaken Moscow's war effort.</p>
-                                <a href="https://news.google.com/search?q=EU+sanctions+Russia+energy+technology+2025&hl=en&gl=US&ceid=US%3Aen" 
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                <a href="https://news.google.com/search?q=EU+sanctions+Russia+energy+technology+2025&hl=en&gl=US&ceid=US%3Aen" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
                                     Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                                 </a>
                             </div>
@@ -352,24 +326,18 @@
                                 <span class="text-xs text-royal-red font-bold uppercase tracking-wider">Diplomacy</span>
                                 <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">Peace Negotiations at Standstill as Both Sides Reject Ceasefire Terms</h4>
                                 <p class="text-gray-600 text-sm mb-4">Mediation efforts by Turkey and the UN fail to bridge gaps; global markets remain jittery.</p>
-                                <a href="https://news.google.com/search?q=Russia+Ukraine+peace+negotiations+ceasefire+2025&hl=en&gl=US&ceid=US%3Aen" 
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                <a href="https://news.google.com/search?q=Russia+Ukraine+peace+negotiations+ceasefire+2025&hl=en&gl=US&ceid=US%3Aen" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
                                     Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
-
-                    <!-- ========== 中文媒體區 ========== -->
                     <div>
                         <div class="flex items-center gap-3 mb-8 reveal">
                             <div class="h-px flex-grow bg-gray-200"></div>
                             <span class="text-lg font-bold text-royal-dark uppercase tracking-widest bg-white px-4">🇹🇼 中文媒體</span>
                             <div class="h-px flex-grow bg-gray-200"></div>
                         </div>
-
-                        <!-- 中文頭條 -->
                         <div class="reveal mb-10">
                             <div class="bg-red-50 border-l-4 border-royal-red p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
                                 <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -382,23 +350,17 @@
                                 <p class="text-gray-700 leading-relaxed mb-4">
                                     烏東頓巴斯地區戰事再起，北約召開緊急會議商討軍事援助，聯合國警告人道危機持續惡化。
                                 </p>
-                                <a href="https://news.google.com/search?q=%E4%BF%84%E7%83%8F%E6%88%B0%E7%88%AD%202025%202026%20%E6%9C%80%E6%96%B0&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" 
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="inline-flex items-center gap-2 text-royal-red font-semibold hover:underline">
+                                <a href="https://news.google.com/search?q=%E4%BF%84%E7%83%8F%E6%88%B0%E7%88%AD%202025%202026%20%E6%9C%80%E6%96%B0&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-royal-red font-semibold hover:underline">
                                     查看 Google 新聞 <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
                         </div>
-
-                        <!-- 中文三小格 -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div class="reveal delay-100 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
                                 <span class="text-xs text-royal-red font-bold uppercase tracking-wider">軍事援助</span>
                                 <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">西方盟國承諾向烏克蘭提供更多先進武器</h4>
                                 <p class="text-gray-600 text-sm mb-4">新一批軍援包括長程飛彈與防空系統，外界擔憂衝突進一步擴大。</p>
-                                <a href="https://news.google.com/search?q=%E8%A5%BF%E6%96%B9%E8%BB%8D%E6%8F%B4%20%E7%83%8F%E5%85%8B%E8%98%AD%202025&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" 
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                <a href="https://news.google.com/search?q=%E8%A5%BF%E6%96%B9%E8%BB%8D%E6%8F%B4%20%E7%83%8F%E5%85%8B%E8%98%AD%202025&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
                                     查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                                 </a>
                             </div>
@@ -406,9 +368,7 @@
                                 <span class="text-xs text-royal-red font-bold uppercase tracking-wider">經濟制裁</span>
                                 <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">歐盟對俄羅斯能源與科技領域實施新制裁</h4>
                                 <p class="text-gray-600 text-sm mb-4">最新制裁鎖定石油出口與半導體進口，試圖削弱莫斯科戰爭機器。</p>
-                                <a href="https://news.google.com/search?q=%E6%AD%90%E7%9B%9F%20%E5%88%B6%E8%A3%81%20%E4%BF%84%E7%BE%85%E6%96%AF%20%E8%83%BD%E6%BA%90%20%E7%A7%91%E6%8A%80%202025&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" 
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                <a href="https://news.google.com/search?q=%E6%AD%90%E7%9B%9F%20%E5%88%B6%E8%A3%81%20%E4%BF%84%E7%BE%85%E6%96%AF%20%E8%83%BD%E6%BA%90%20%E7%A7%91%E6%8A%80%202025&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
                                     查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                                 </a>
                             </div>
@@ -416,9 +376,7 @@
                                 <span class="text-xs text-royal-red font-bold uppercase tracking-wider">外交斡旋</span>
                                 <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">和平談判陷入僵局，雙方拒絕停火提議</h4>
                                 <p class="text-gray-600 text-sm mb-4">土耳其與聯合國調解未果，全球金融市場持續動盪。</p>
-                                <a href="https://news.google.com/search?q=%E4%BF%84%E7%83%8F%E5%92%8C%E5%B9%B3%E8%AB%87%E5%88%A4%20%E5%81%9C%E7%81%AB%202025&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" 
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                                <a href="https://news.google.com/search?q=%E4%BF%84%E7%83%8F%E5%92%8C%E5%B9%B3%E8%AB%87%E5%88%A4%20%E5%81%9C%E7%81%AB%202025&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" target="_blank" rel="noopener noreferrer" class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
                                     查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                                 </a>
                             </div>
@@ -436,27 +394,21 @@
                         <i class="fa-solid fa-sack-dollar text-2xl"></i>
                     </div>
                     <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">招募金源</h4>
-                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
-                        利用皇家品牌效應，為慈善機構與國家項目進行高效的資本聚合運算。
-                    </p>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">利用皇家品牌效應，為慈善機構與國家項目進行高效的資本聚合運算。</p>
                 </div>
                 <div class="reveal delay-200 group p-8 bg-gray-50 hover:bg-royal-red transition-colors duration-500 text-center rounded-sm">
                     <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-royal-red group-hover:text-royal-red">
                         <i class="fa-solid fa-building-columns text-2xl"></i>
                     </div>
                     <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">吸引外商投資</h4>
-                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
-                        透過國事訪問與皇家認證（Royal Warrant），提升英國市場的 SEO 排名與轉換率。
-                    </p>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">透過國事訪問與皇家認證（Royal Warrant），提升英國市場的 SEO 排名與轉換率。</p>
                 </div>
                 <div class="reveal delay-300 group p-8 bg-gray-50 hover:bg-royal-red transition-colors duration-500 text-center rounded-sm">
                     <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-royal-red group-hover:text-royal-red">
                         <i class="fa-solid fa-camera-retro text-2xl"></i>
                     </div>
                     <h4 class="font-serif text-xl font-bold text-royal-dark group-hover:text-white mb-3">觀光吉祥物</h4>
-                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">
-                        作為全英最大的流量入口，只需揮手即可為倫敦帶來數百萬的活躍訪客（DAU）。
-                    </p>
+                    <p class="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed">作為全英最大的流量入口，只需揮手即可為倫敦帶來數百萬的活躍訪客（DAU）。</p>
                 </div>
             </div>
         </div>
@@ -476,8 +428,7 @@
                     <h3 class="font-serif text-2xl font-bold text-royal-dark mb-3">自動化會議記錄摘要機器人</h3>
                     <p class="text-gray-600 mb-6 text-sm">基於 Whisper 模型與 GPT-4，自動將錄音檔轉錄並生成條列式會議紀錄。</p>
                     <a href="https://lin.ee/JxZy1M7" target="_blank" class="px-6 py-2 border border-royal-red text-royal-red font-medium hover:bg-royal-red hover:text-white transition-all duration-300 inline-flex items-center gap-2">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        Demo 連結
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo 連結
                     </a>
                 </div>
                 <div class="reveal delay-200 p-8 bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 text-center">
@@ -503,7 +454,7 @@
         </div>
     </section>
 
-    <!-- Consultation Section -->
+    <!-- ★★★ 修正後的「預約皇家諮詢」區塊 ★★★ -->
     <section id="contact" class="py-24 bg-royal-dark text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 pattern-dots"></div>
         <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
@@ -512,9 +463,13 @@
                 <h2 class="font-serif text-4xl font-bold mb-4">預約皇家諮詢</h2>
                 <p class="text-gray-400 mb-10">無論是環保議題或是下午茶禮儀，King Charles AI 隨時準備回應（如果秘書安排得進去的話）。</p>
             </div>
+            <!-- 表單現在直接發送至 Formsubmit.co 的 ajax 端點 -->
             <form id="royal-consultation-form" class="reveal delay-100 max-w-lg mx-auto space-y-4 text-left" novalidate>
+                <!-- 郵件主旨 -->
                 <input type="hidden" name="_subject" value="【皇家諮詢】新訊息來自 HAIL KING CHARLES 網站">
-                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                <!-- Formsubmit 蜜罐：防止垃圾郵件 -->
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
                 <div>
                     <label for="sender-name" class="block text-sm font-medium text-gray-400 mb-1">您的爵位 / Name</label>
                     <input type="text" id="sender-name" name="爵位／姓名" required class="w-full px-4 py-3 bg-white/10 border border-gray-700 rounded-none focus:border-royal-red focus:ring-1 focus:ring-royal-red outline-none text-white transition-all" placeholder="Sir / Madam...">
@@ -551,6 +506,7 @@
 
     <!-- Scripts -->
     <script>
+        // ---- 1. 滾動顯示動畫 ----
         const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -562,10 +518,12 @@
         }, observerOptions);
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        // ---- 2. 手機選單切換 ----
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
+        // ---- 3. 背景粒子動畫 ----
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray;
@@ -618,17 +576,20 @@
         init();
         animate();
 
-        const FORMSPREE_FORM_ID = 'YOUR_FORMSPREE_FORM_ID'; // 請替換為您的實際 Form ID
-        const FORM_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
+        // ---- 4. 表單提交至 Email (使用 Formsubmit.co) ----
         const consultationForm = document.getElementById('royal-consultation-form');
         const submitBtn = document.getElementById('submit-btn');
         const feedbackEl = document.getElementById('form-feedback');
 
+        // 直接設定為您的信箱，使用 Formsubmit 的 ajax 端點
+        const FORM_ENDPOINT = "https://formsubmit.co/ajax/yyyyyungeric@yahoo.com.tw";
+
         function showFeedback(message, type) {
             feedbackEl.textContent = message;
             feedbackEl.className = 'form-feedback show ' + type;
-            setTimeout(() => { feedbackEl.className = 'form-feedback'; }, 5000);
+            setTimeout(() => { feedbackEl.className = 'form-feedback'; }, 6000);
         }
+
         function setButtonLoading(isLoading) {
             if (isLoading) {
                 submitBtn.classList.add('btn-submitting');
@@ -643,10 +604,8 @@
 
         consultationForm.addEventListener('submit', async function(event) {
             event.preventDefault();
-            if (FORMSPREE_FORM_ID === 'YOUR_FORMSPREE_FORM_ID') {
-                showFeedback('⚠️ 尚未設定 Formspree Form ID。請參閱代碼中的設定說明，將 FORMSPREE_FORM_ID 替換為您的實際 ID。', 'error');
-                return;
-            }
+
+            // 簡易驗證
             const nameInput = document.getElementById('sender-name');
             const messageInput = document.getElementById('sender-message');
             if (!nameInput.value.trim()) {
@@ -659,26 +618,34 @@
                 messageInput.focus();
                 return;
             }
+
+            // 準備資料 (使用 JSON 格式)
             const formData = {
-                '爵位／姓名': nameInput.value.trim(),
-                '諮詢議題': document.getElementById('sender-topic').value,
-                '訊息內容': messageInput.value.trim(),
-                '_subject': '【皇家諮詢】新訊息來自 HAIL KING CHARLES 網站',
+                name: nameInput.value.trim(),          // 顯示在郵件中的姓名
+                topic: document.getElementById('sender-topic').value,
+                message: messageInput.value.trim(),
+                _subject: '【皇家諮詢】新訊息來自 HAIL KING CHARLES 網站',
             };
+
             setButtonLoading(true);
-            feedbackEl.className = 'form-feedback';
+            feedbackEl.className = 'form-feedback'; // 清除舊訊息
+
             try {
                 const response = await fetch(FORM_ENDPOINT, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
                 });
+
                 if (response.ok) {
-                    showFeedback('✅ 您的請求已成功發送至白金漢宮伺服器！\n我們將盡快回覆（約 3-5 個工作世紀）。', 'success');
+                    showFeedback('✅ 您的請求已成功發送至白金漢宮伺服器！\n（首次使用 Formsubmit 可能需要收件人確認郵件）', 'success');
                     consultationForm.reset();
                 } else {
                     const errorData = await response.json().catch(() => ({}));
-                    console.error('Formspree 錯誤：', errorData);
+                    console.error('提交錯誤：', errorData);
                     showFeedback('❌ 傳送失敗，請稍後再試。若持續發生，請直接寄信至 yyyyyungeric@yahoo.com.tw。', 'error');
                 }
             } catch (networkError) {
