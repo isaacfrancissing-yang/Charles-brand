@@ -1,0 +1,144 @@
+<!-- ★★★ 更新后的 Royal News Bulletin 区块：聚焦国际地缘政治 ★★★ -->
+<section id="news" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-royal-dark mb-4">Royal News Bulletin</h2>
+            <div class="w-24 h-1 bg-royal-red mx-auto"></div>
+            <p class="mt-4 text-gray-600">國際重大地緣政治事件即時追蹤 — 點擊標題查看來自全球主要媒體的雙語報導。</p>
+            <p class="text-xs text-gray-400 mt-2">
+                <i class="fa-solid fa-sync-alt mr-1"></i> 数据来源：Google 每日热搜趋势 · 建议每日北京时间 12:00 更新
+            </p>
+        </div>
+
+        <!-- ========== 英文主流媒體區 ========== -->
+        <div class="mb-20">
+            <div class="flex items-center gap-3 mb-8 reveal">
+                <div class="h-px flex-grow bg-gray-200"></div>
+                <span class="text-lg font-bold text-royal-dark uppercase tracking-widest bg-white px-4">🇬🇧 English-Language Media</span>
+                <div class="h-px flex-grow bg-gray-200"></div>
+            </div>
+
+            <!-- 英文頭條：美伊衝突 -->
+            <div class="reveal mb-10">
+                <div class="bg-red-50 border-l-4 border-royal-red p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                        <span class="bg-royal-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Top Story</span>
+                        <span class="text-gray-500 text-sm">English · Google News</span>
+                    </div>
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold text-royal-dark mb-3">
+                        US Launches New Strikes on Iran Despite Ongoing Ceasefire
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        The United States has launched new strikes on Iranian missile sites and boats, escalating tensions even as diplomatic negotiations continue. Iran has begun lifting its nationwide internet shutdown.
+                    </p>
+                    <a href="https://news.google.com/search?q=US+launches+new+strikes+on+Iran+2026+05+27&hl=en&gl=US&ceid=US%3Aen" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 text-royal-red font-semibold hover:underline">
+                        Read on Google News <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 英文三小格 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 新聞 2：霍爾木茲海峽 -->
+                <div class="reveal delay-100 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <span class="text-xs text-royal-red font-bold uppercase tracking-wider">Military Conflict</span>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">Britain's Navy Prepares to Clear Mines in Strait of Hormuz</h4>
+                    <p class="text-gray-600 text-sm mb-4">Hundreds of British sailors await deployment off Gibraltar as the key oil shipping route remains threatened.</p>
+                    <a href="https://news.google.com/search?q=Strait+of+Hormuz+minesweeping+Royal+Navy+2026&hl=en&gl=US&ceid=US%3Aen" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                        Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+                <!-- 新聞 3：中東地緣政治 -->
+                <div class="reveal delay-200 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <span class="text-xs text-royal-red font-bold uppercase tracking-wider">Geopolitics</span>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">Former Qatar PM: Netanyahu Using Iran War to Reshape Middle East</h4>
+                    <p class="text-gray-600 text-sm mb-4">Ex-PM warns the war is being used to push a "Greater Israel" agenda and calls for a unified Gulf defence pact.</p>
+                    <a href="https://news.google.com/search?q=Netanyahu+using+Iran+war+reshape+Middle+East+2026&hl=en&gl=US&ceid=US%3Aen" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                        Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+                <!-- 新聞 4：蘇丹內戰 -->
+                <div class="reveal delay-300 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <span class="text-xs text-royal-red font-bold uppercase tracking-wider">Humanitarian Crisis</span>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">Sudan's War Economy: Gold Keeps Flowing as Miners Risk Mercury and Collapse</h4>
+                    <p class="text-gray-600 text-sm mb-4">The conflict has killed at least 59,000 people, with illegal gold mining funding the ongoing civil war.</p>
+                    <a href="https://news.google.com/search?q=Sudan+gold+mining+war+economy+2026&hl=en&gl=US&ceid=US%3Aen" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                        Read more <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 中文媒體區 ========== -->
+        <div>
+            <div class="flex items-center gap-3 mb-8 reveal">
+                <div class="h-px flex-grow bg-gray-200"></div>
+                <span class="text-lg font-bold text-royal-dark uppercase tracking-widest bg-white px-4">🇹🇼 中文媒體</span>
+                <div class="h-px flex-grow bg-gray-200"></div>
+            </div>
+
+            <!-- 中文頭條 -->
+            <div class="reveal mb-10">
+                <div class="bg-red-50 border-l-4 border-royal-red p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                        <span class="bg-royal-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">頭條焦點</span>
+                        <span class="text-gray-500 text-sm">中文 · Google 新聞</span>
+                    </div>
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold text-royal-dark mb-3">
+                        美軍不顧停火協議再次空襲伊朗導彈陣地與船隻
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        儘管和平談判持續推進，美軍再次對伊朗發動新一輪打擊。伊朗宣布今日起解除全國網路封鎖，中東局勢依然緊張。
+                    </p>
+                    <a href="https://news.google.com/search?q=%E7%BE%8E%E8%BB%8D%E7%A9%BA%E8%A5%B2%E4%BC%8A%E6%9C%97%202026&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 text-royal-red font-semibold hover:underline">
+                        查看 Google 新聞 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 中文三小格 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="reveal delay-100 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <span class="text-xs text-royal-red font-bold uppercase tracking-wider">軍事衝突</span>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">英國海軍嚴陣以待準備在霍爾木茲海峽進行掃雷</h4>
+                    <p class="text-gray-600 text-sm mb-4">數百名英國水手在直布羅陀附近待命，這條全球關鍵石油航道正面臨嚴峻威脅。</p>
+                    <a href="https://news.google.com/search?q=%E9%9C%8D%E7%88%BE%E6%9C%A8%E8%8C%B2%E6%B5%B7%E5%B3%BD%20%E6%8E%83%E9%9B%B7%20%E8%8B%B1%E5%9C%8B%E6%B5%B7%E8%BB%8D%202026&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                        查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+                <div class="reveal delay-200 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <span class="text-xs text-royal-red font-bold uppercase tracking-wider">地緣政治</span>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">前卡塔爾首相：內塔尼亞胡正利用伊朗戰爭重塑中東</h4>
+                    <p class="text-gray-600 text-sm mb-4">警告以色列正借戰爭推行“大以色列”計劃，呼籲建立統一的海灣防禦聯盟。</p>
+                    <a href="https://news.google.com/search?q=%E5%85%A7%E5%A1%94%E5%B0%BC%E4%BA%9E%E8%83%A1%20%E4%BC%8A%E6%9C%97%E6%88%B0%E7%88%AD%20%E4%B8%AD%E6%9D%B1%202026&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                        查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+                <div class="reveal delay-300 bg-white border border-gray-200 p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <span class="text-xs text-royal-red font-bold uppercase tracking-wider">人道危機</span>
+                    <h4 class="font-serif text-xl font-bold text-royal-dark mt-2 mb-3">蘇丹內戰經濟：黃金持續流出，礦工冒著水銀與坍塌風險</h4>
+                    <p class="text-gray-600 text-sm mb-4">衝突已致至少5.9萬人死亡，非法黃金開採持續為曠日持久的內戰提供資金。</p>
+                    <a href="https://news.google.com/search?q=%E8%98%87%E4%B8%B9%E5%85%A7%E6%88%B0%20%E9%BB%83%E9%87%91%202026&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-royal-red text-sm font-medium hover:underline flex items-center gap-1">
+                        查看詳情 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
